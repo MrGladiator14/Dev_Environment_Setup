@@ -1,0 +1,35 @@
+[MASTER]
+# Ignore the virtual environment and data folders
+ignore=venv,env,.venv,data,outputs
+
+[MESSAGES CONTROL]
+# Disable rules that are often too pedantic for beginners/ML prototyping
+disable=
+    C0114, # missing-module-docstring
+    C0115, # missing-class-docstring
+    C0116, # missing-function-docstring
+    R0903, # too-few-public-methods (Common in simple ML Wrappers)
+    W0511, # fixme (Don't punish yourself for leaving TODOs)
+    W0613, # unused-argument (Often happens with callbacks/API requirements)
+
+[BASIC]
+# Allow 'X', 'y', 'i', 'j' for ML conventions and loop counters
+good-names=i,j,k,ex,Run,_,X,y,df,lr,ep
+
+# Regular expression matching correct variable names. 
+# This version is slightly more relaxed than the default.
+variable-rgx=[a-z_][a-z0-9_]{1,30}$
+
+[FORMAT]
+# AI code can get wide with long library calls (like matplotlib or torch)
+max-line-length=100
+
+[DESIGN]
+# Beginners often write longer functions before refactoring.
+max-locals=25
+max-args=10
+max-attributes=15
+
+[TYPECHECK]
+# Prevent Pylint from complaining about dynamic members in ML libraries
+ignored-modules=torch,tensorflow,cv2,numpy,pandas

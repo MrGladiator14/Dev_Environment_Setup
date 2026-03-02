@@ -1,0 +1,7 @@
+************* Module beginner
+beginner.py:18:0: C0303: Trailing whitespace (trailing-whitespace)
+beginner.py:23:0: C0304: Final newline missing (missing-final-newline)
+
+------------------------------------------------------------------
+Your code has been rated at 8.46/10 (previous run: 8.46/10, +0.00)
+
