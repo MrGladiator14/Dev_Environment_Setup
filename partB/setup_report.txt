@@ -1,0 +1,9 @@
+ENVIRONMENT CHECK REPORT
+==============================
+[PASS] Python version: 3.12.3 (0.00s)
+[PASS] Virtual environment: Active (0.00s)
+[PASS] Disk Space: 28.28GB available (0.00s)
+[PASS] Internet connectivity: OK (2.71s)
+[PASS] Dependencies: OK (0.16s)
+
+Total execution time: 3.10s | Report: setup_report.txt

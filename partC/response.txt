@@ -1,0 +1,79 @@
+Q1: Explain virtual environments?
+
+A Python virtual environment is a private workspace that keeps a project's specific tools and libraries isolated from the rest of your computer.
+Developers use them to prevent "version conflicts," ensuring that an update for one project doesn't accidentally break a different one.
+Without them, your computer will experience conflicting software requirements crash into each other, 
+making it nearly impossible to share or run your code reliably.
+
+The Analogy:
+Think of it like a specialized kitchen kit.
+If you’re baking a cake, you have a specific box with your flour, sugar, and whisk. If you then decide to fix a car, you don’t want your motor oil mixing with your cake batter.
+A virtual environment ensures that the "ingredients" for your software projects stay in their own separate containers so nothing gets ruined.
+
+Q2: Coding, fix and improve this code
+
+The 5 Issues Identified
+Indentation Error: The body of the checkVersion function and the if/else blocks are not indented. This causes an immediate IndentationError.
+
+Unused Imports: os and json are imported but never used. Pylint flags these as unused-import.
+
+Naming Convention: Function names in Python should be snake_case (e.g., check_version), not camelCase.
+
+Whitespace Violations: There is irregular spacing around operators (e.g., v.minor>=11) and inside the print function call.
+
+Unused Variable: The variable temp = 42 is defined but never used, which Pylint flags as unused-variable.
+
+Corrected Code:
+
+"""
+This module checks the current Python version and prints its status.
+"""
+import sys
+
+
+def check_version():
+    """
+    Checks if the Python version is 3.11 or higher.
+    Returns 'Good' if compliant, otherwise 'Bad'.
+    """
+    version = sys.version_info
+    if version.major >= 3 and version.minor >= 11:
+        return "Good"
+    return "Bad"
+
+
+def main():
+    """
+    Main execution point of the script.
+    """
+    result = check_version()
+    print(f"Version status: {result}")
+
+
+if __name__ == "__main__":
+    main()
+
+Q3: Debug/Analyze
+1. Environment Mismatch
+The junior likely installed NumPy into their global Python environment
+but is running the script inside a virtual environment (or vice-versa).
+
+Diagnostic Command:
+pip list (Check if numpy appears in the current environment's list.)
+
+2. Version Confusion (Python 2 vs. 3)
+On many systems, pip might point to Python 2.7,
+while the developer is running the script with python3.
+
+Diagnostic Command:
+python -m pip --version (This confirms exactly which Python instance 
+the pip command is tied to.)
+
+3. Path Priorities
+There might be multiple Python installations (like Homebrew, 
+Anaconda, and official installers) and the $PATH is pointing 
+to a different one than expected.
+
+Diagnostic Command:
+which python (or where python on Windows) and which pip 
+(Verify if they both originate from the same directory.)

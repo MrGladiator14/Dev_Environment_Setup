@@ -1,0 +1,14 @@
+Environment Report - Linux
+==============================
+[PASS] Python version: 3.12.3
+[PASS] Virtual environment: Active
+[PASS] pylint/black/numpy/requests: Installed
+[PASS] Internet connectivity: OK
+
+Installed Versions:
+pylint==4.0.5
+black==26.1.0
+numpy==2.4.2
+requests==2.32.5
+
+Result: 4/4 checks passed
